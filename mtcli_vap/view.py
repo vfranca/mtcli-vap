@@ -1,5 +1,6 @@
 from .conf import DIGITOS as D
 
+
 class VAPView:
     """
     View responsável por:
@@ -53,8 +54,6 @@ class VAPView:
             percent = (v / total_volume) * 100
             percent_field = f"{percent:5.1f}"
 
-            lines.append(
-                f"{price_field} | {vol_field} | {percent_field}"
-            )
+            lines.append(f"{price_field} | {vol_field} | {percent_field}")
 
         return "\n".join(lines) + "\n"

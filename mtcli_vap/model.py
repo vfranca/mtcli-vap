@@ -14,10 +14,10 @@ Observações importantes:
 """
 
 from collections import defaultdict
+
 import MetaTrader5 as mt5
 
-from .conf import DIGITOS as D
-from .conf import TICK_SIZE
+from .conf import DIGITOS as D, TICK_SIZE
 
 
 class VAPModel:
@@ -58,17 +58,10 @@ class VAPModel:
         if not mt5.initialize():
             raise RuntimeError("Falha ao inicializar MetaTrader5.")
 
-        rates = mt5.copy_rates_from_pos(
-            self.symbol,
-            self.timeframe,
-            0,
-            self.bars
-        )
+        rates = mt5.copy_rates_from_pos(self.symbol, self.timeframe, 0, self.bars)
 
         if rates is None or len(rates) == 0:
-            raise RuntimeError(
-                f"Sem dados MT5 para o símbolo {self.symbol}."
-            )
+            raise RuntimeError(f"Sem dados MT5 para o símbolo {self.symbol}.")
 
         return rates
 

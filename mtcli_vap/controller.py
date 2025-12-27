@@ -1,6 +1,7 @@
 from .model import VAPModel
 from .view import VAPView
 
+
 class VAPController:
     """
     Controller no padrão MVC utilizado pelos utilitários mtcli:
@@ -10,11 +11,7 @@ class VAPController:
     """
 
     def __init__(
-        self,
-        symbol: str,
-        timeframe=None,
-        bars: int = None,
-        sort: str = "volume"
+        self, symbol: str, timeframe=None, bars: int = None, sort: str = "volume"
     ):
         """
         Args:
@@ -23,11 +20,7 @@ class VAPController:
             bars: quantidade de candles.
             sort: critério de ordenação ("volume" ou "price").
         """
-        self.model = VAPModel(
-            symbol=symbol,
-            timeframe=timeframe,
-            bars=bars
-        )
+        self.model = VAPModel(symbol=symbol, timeframe=timeframe, bars=bars)
         self.view = VAPView(sort=sort)
 
     def execute(self) -> str:

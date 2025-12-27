@@ -7,4 +7,6 @@ SYMBOL = os.getenv("SYMBOL", config["DEFAULT"].get("symbol", fallback="WIN$N"))
 DIGITOS = int(os.getenv("DIGITOS", config["DEFAULT"].getint("digitos", fallback=2)))
 PERIOD = os.getenv("PERIOD", config["DEFAULT"].get("period", fallback="M1"))
 LIMIT = int(os.getenv("LIMIT", config["DEFAULT"].getint("limit", fallback=566)))
-TICK_SIZE = float(os.getenv("TICK_SIZE", config["DEFAULT"].getfloat("tick_size", fallback=5)))
+TICK_SIZE = float(
+    os.getenv("TICK_SIZE", config["DEFAULT"].getfloat("tick_size", fallback=5))
+)
