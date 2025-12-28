@@ -12,6 +12,7 @@ from .controller import VAPController
 
 
 @click.command()
+@click.version_option(package_name="mtcli-vap")
 @click.option(
     "--symbol",
     "-s",
