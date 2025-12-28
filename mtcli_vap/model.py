@@ -17,7 +17,7 @@ from collections import defaultdict
 
 import MetaTrader5 as mt5
 
-from .conf import DIGITOS as D, TICK_SIZE
+from .conf import DIGITOS as D
 
 
 class VAPModel:
@@ -32,7 +32,13 @@ class VAPModel:
     Não contém lógica de exibição.
     """
 
-    def __init__(self, symbol: str, timeframe=mt5.TIMEFRAME_M1, bars: int = 1000):
+    def __init__(
+        self,
+        symbol: str,
+        timeframe=mt5.TIMEFRAME_M1,
+        bars: int = 1000,
+        tick_size: float = 5,
+    ):
         """
         Inicializa o Model.
 
@@ -40,10 +46,12 @@ class VAPModel:
             symbol (str): ativo (ex: WINZ25, WDOF26).
             timeframe: constante MT5 (ex: mt5.TIMEFRAME_M1).
             bars (int): número de candles a serem processados.
+            tick_size (float): tamanho do tick.
         """
         self.symbol = symbol
         self.timeframe = timeframe
         self.bars = bars
+        self.tick_size = tick_size
 
     def fetch_rates(self):
         """
@@ -100,11 +108,11 @@ class VAPModel:
         p = low
 
         # proteção contra loops infinitos
-        max_steps = int((high - low) / TICK_SIZE) + 1
+        max_steps = int((high - low) / self.tick_size) + 1
 
         for _ in range(max_steps):
             prices.append(round(p, D))
-            p += TICK_SIZE
+            p += self.tick_size
             if p > high:
                 break
 

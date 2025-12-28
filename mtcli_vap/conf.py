@@ -10,3 +10,4 @@ LIMIT = int(os.getenv("LIMIT", config["DEFAULT"].getint("limit", fallback=566)))
 TICK_SIZE = float(
     os.getenv("TICK_SIZE", config["DEFAULT"].getfloat("tick_size", fallback=5))
 )
+SORT = os.getenv("SORT", config["DEFAULT"].get("sort", fallback="volume"))
