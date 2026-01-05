@@ -4,6 +4,7 @@ import MetaTrader5 as mt5
 from .conf import (
     LIMIT,
     PERIOD,
+    ROWS,
     SORT,
     SYMBOL,
     TICK_SIZE,
@@ -45,9 +46,20 @@ from .controller import VAPController
     help="Ordenacao do VAP.",
 )
 @click.option(
-    "--tick-size", "-ts", default=TICK_SIZE, show_default=True, help="Tamanho do tick."
+    "--rows",
+    "-r",
+    type=int,
+    default=ROWS,
+    show_default=True,
+    help="Quantidade maxima de linhas exibidas (0 = todas).",
 )
-def vap(symbol, timeframe, bars, sort, tick_size):
+@click.option(
+    "--tick-size", "-ts",
+    default=TICK_SIZE,
+    show_default=True,
+    help="Tamanho do tick.",
+)
+def vap(symbol, timeframe, bars, sort, rows, tick_size):
     """Exibe o VAP (Volume At Price) no terminal seguindo o padrão textual do mtcli-market."""
     tf_map = {
         "M1": mt5.TIMEFRAME_M1,
@@ -80,6 +92,7 @@ def vap(symbol, timeframe, bars, sort, tick_size):
         timeframe=tf_map[timeframe_upper],
         bars=bars,
         sort=sort,
+        rows=rows,
         tick_size=tick_size,
     )
 
