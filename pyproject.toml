@@ -1,9 +1,9 @@
 [project]
 name = "mtcli-vap"
-version = "1.1.0"
-description = "Plugin mtcli do indicador VAP"
+version = "1.2.0"
+description = "Plugin mtcli do Volume At Price"
 authors = [
-    {name = "Valmir França da Silva",email = "vfranca3@gmail.com"}
+    {name = "Valmir França",email = "vfranca3@gmail.com"}
 ]
 readme = "README.md"
 license = "GPL-3.0"

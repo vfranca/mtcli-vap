@@ -36,7 +36,7 @@ from .controller import VAPController
     "bars",
     default=LIMIT,
     show_default=True,
-    help="Numero de timeframes a serem lidos.",
+    help="Numero de timeframes (candles) a serem lidos.",
 )
 @click.option(
     "--sort",
@@ -47,20 +47,26 @@ from .controller import VAPController
 )
 @click.option(
     "--rows",
-    "-r",
     type=int,
     default=ROWS,
     show_default=True,
     help="Quantidade maxima de linhas exibidas (0 = todas).",
 )
 @click.option(
-    "--tick-size", "-ts",
+    "--show-rest",
+    is_flag=True,
+    default=False,
+    help="Exibe o percentual do volume que ficou fora do Top N (--rows).",
+)
+@click.option(
+    "--tick-size",
+    "-ts",
     default=TICK_SIZE,
     show_default=True,
     help="Tamanho do tick.",
 )
-def vap(symbol, timeframe, bars, sort, rows, tick_size):
-    """Exibe o VAP (Volume At Price) no terminal seguindo o padrão textual do mtcli-market."""
+def vap(symbol, timeframe, bars, sort, rows, show_rest, tick_size):
+    """Exibe o Volume At Price (VAP) no terminal."""
     tf_map = {
         "M1": mt5.TIMEFRAME_M1,
         "M2": mt5.TIMEFRAME_M2,
@@ -93,6 +99,7 @@ def vap(symbol, timeframe, bars, sort, rows, tick_size):
         bars=bars,
         sort=sort,
         rows=rows,
+        show_rest=show_rest,
         tick_size=tick_size,
     )
 

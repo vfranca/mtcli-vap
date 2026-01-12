@@ -332,20 +332,21 @@ files = [
 
 [[package]]
 name = "metatrader5"
-version = "5.0.5430"
+version = "5.0.5488"
 description = "API Connector to MetaTrader 5 Terminal"
 optional = false
-python-versions = "<4,>3.5"
+python-versions = "<4,>=3.6"
 groups = ["main"]
 files = [
-    {file = "metatrader5-5.0.5430-cp310-cp310-win_amd64.whl", hash = "sha256:19ca31a97cf00c5f284a5709ae53725e400daad10e8ab97b9636aae5a107433c"},
-    {file = "metatrader5-5.0.5430-cp311-cp311-win_amd64.whl", hash = "sha256:e749425f46d66450b5cfe999efc445788e68037e03b17f66863b631517873a31"},
-    {file = "metatrader5-5.0.5430-cp312-cp312-win_amd64.whl", hash = "sha256:aa6a556fbca64a0eb84583e8c81a5f5a346fb74a061106a3fdd3793ec05a392c"},
-    {file = "metatrader5-5.0.5430-cp313-cp313-win_amd64.whl", hash = "sha256:bfd9e190d572a4e659b1aee43bd40e229b7980fdd9f10a1916030ac169b69376"},
-    {file = "metatrader5-5.0.5430-cp36-cp36m-win_amd64.whl", hash = "sha256:846b43fc127e0b7ebcff8a6b37bd29ba7e1622d6a904e6b8868f6c4456c08959"},
-    {file = "metatrader5-5.0.5430-cp37-cp37m-win_amd64.whl", hash = "sha256:651f3f18352fe5d17195e49bfd644f9bdc07e7cb575fd26618e91e87ad6a41b5"},
-    {file = "metatrader5-5.0.5430-cp38-cp38-win_amd64.whl", hash = "sha256:692fbf75043d19db187890a151a9cb5a66b14614a9daabe07685fb6bc4647f35"},
-    {file = "metatrader5-5.0.5430-cp39-cp39-win_amd64.whl", hash = "sha256:7cb9544d14b91cc483558197e826889ee58628580e3a6794e32a933acb416146"},
+    {file = "metatrader5-5.0.5488-cp310-cp310-win_amd64.whl", hash = "sha256:513c75cc1765ad44f20c41c567d036052ea0ac7f0969514d2427fed3a0edb556"},
+    {file = "metatrader5-5.0.5488-cp311-cp311-win_amd64.whl", hash = "sha256:6018369e1c7b104757c1fd06bad3dcad5cf1951277aee53cfe559c31dd98fa38"},
+    {file = "metatrader5-5.0.5488-cp312-cp312-win_amd64.whl", hash = "sha256:7a82cf08e8490143225faab5207b4b9c50f3f6b86288132194711fb0bd146383"},
+    {file = "metatrader5-5.0.5488-cp313-cp313-win_amd64.whl", hash = "sha256:9c117b4fb9f6f05e924a37069e9c6a151d16594519f30dbf4ec0d548131f540d"},
+    {file = "metatrader5-5.0.5488-cp314-cp314-win_amd64.whl", hash = "sha256:a3b922682f9cad6384dbfb6bed16f517eb8e24ea819114186f0ef523cf95f32a"},
+    {file = "metatrader5-5.0.5488-cp36-cp36m-win_amd64.whl", hash = "sha256:1e30741acb53e9ae7a8e03ac96978a8586fa16c2290d2d6ed23c401f1040fd61"},
+    {file = "metatrader5-5.0.5488-cp37-cp37m-win_amd64.whl", hash = "sha256:d2830ffde346518296a5643580c3219a3134eb6834c6def34329433ee385d624"},
+    {file = "metatrader5-5.0.5488-cp38-cp38-win_amd64.whl", hash = "sha256:74bbf34c81924d36e34b21219df83f6b6701e7bc375f540020033a994de24b9f"},
+    {file = "metatrader5-5.0.5488-cp39-cp39-win_amd64.whl", hash = "sha256:e33daa50703c12aceebb891b9d2308cfe079ac3f4aff80f5f995d32f8b3543dd"},
 ]
 
 [package.dependencies]
@@ -494,15 +495,21 @@ files = [
 
 [[package]]
 name = "pathspec"
-version = "0.12.1"
+version = "1.0.2"
 description = "Utility library for gitignore style pattern matching of file paths."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["docs"]
 files = [
-    {file = "pathspec-0.12.1-py3-none-any.whl", hash = "sha256:a0d503e138a4c123b27490a4f7beda6a01c6f288df0e4a8b79c7eb0dc7b4cc08"},
-    {file = "pathspec-0.12.1.tar.gz", hash = "sha256:a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"},
+    {file = "pathspec-1.0.2-py3-none-any.whl", hash = "sha256:62f8558917908d237d399b9b338ef455a814801a4688bc41074b25feefd93472"},
+    {file = "pathspec-1.0.2.tar.gz", hash = "sha256:fa32b1eb775ed9ba8d599b22c5f906dc098113989da2c00bf8b210078ca7fb92"},
 ]
+
+[package.extras]
+hyperscan = ["hyperscan (>=0.7)"]
+optional = ["typing-extensions (>=4)"]
+re2 = ["google-re2 (>=1.1)"]
+tests = ["pytest (>=9)", "typing-extensions (>=4.15)"]
 
 [[package]]
 name = "platformdirs"

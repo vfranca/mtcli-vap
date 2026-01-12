@@ -4,10 +4,7 @@ from .view import VAPView
 
 class VAPController:
     """
-    Controller no padrão MVC utilizado pelos utilitários mtcli:
-    - não contém lógica pesada;
-    - orquestra Model -> View;
-    - responsável por passar parâmetros e devolver a string pronta.
+    Controller no padrão MVC utilizado pelos utilitários mtcli.
     """
 
     def __init__(
@@ -17,6 +14,7 @@ class VAPController:
         bars: int = None,
         sort: str = "volume",
         rows: int = 0,
+        show_rest: bool = False,
         tick_size: float = 5,
     ):
         """
@@ -26,6 +24,7 @@ class VAPController:
             bars: quantidade de candles.
             sort: critério de ordenação ("volume" ou "price").
             rows: quantidade máxima de linhas exibidas (0 = todas).
+            show_rest: exibe percentual fora do Top N.
             tick_size: tamanho do tick.
         """
         self.model = VAPModel(
@@ -34,7 +33,11 @@ class VAPController:
             bars=bars,
             tick_size=tick_size,
         )
-        self.view = VAPView(sort=sort, rows=rows)
+        self.view = VAPView(
+            sort=sort,
+            rows=rows,
+            show_rest=show_rest,
+        )
 
     def execute(self) -> str:
         vap = self.model.get_vap()
