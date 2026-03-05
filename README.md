@@ -218,7 +218,7 @@ Abra uma issue ou envie um pull request.
   
 ## Licença
   
-GPL License.
+MIT License.
   
 ---
   
